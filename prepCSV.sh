@@ -11,11 +11,11 @@ for file in *.log; do
     newfile="${file%.log}.csv"
 
     # Add the header lines to the new CSV file
-    echo "WigleWifi-1.6,appRelease=2.78,model=Flipper Zero,release=mntm-008,device=Flipper Zero,display=Flipper Zero,board=ESP32,\"brand=Flipper Zero\",star=Sol,body=4,subBody=0" >"$newfile"
-    echo "MAC,SSID,AuthMode,FirstSeen,Channel,Frequency,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type" >>"$newfile"
+    echo "WigleWifi-1.6,appRelease=2.78,model=Flipper Zero,release=mntm-008,device=Flipper Zero,display=Flipper Zero,board=ESP32,\"brand=Flipper Zero\",star=Sol,body=4,subBody=0" > "$newfile"
+    echo "MAC,SSID,AuthMode,FirstSeen,Channel,Frequency,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type" >> "$newfile"
 
     # Remove the numbering at the beginning of each line and append to the CSV file
-    sed -E 's/^.*?\|\s*//' "$file" >>"$newfile"
+    sed -E 's/^.*?\|\s*//' "$file" >> "$newfile"
 
     echo "Processed $file into $newfile"
   fi
